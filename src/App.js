@@ -12,7 +12,10 @@ function App() {
   const url = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
 
   const onChangeFromPrice = (value) => {
+    const price = value / rates[fromCurrency];
+    const result = price * rates[toCurrency]; 
     setFromPrice(value);
+    setToPrice(result);
   };
 
   const onChangeToPrice = (value) => {
@@ -24,23 +27,27 @@ function App() {
       .then((res) => res.json())
       .then((json) => {
         setRates(json);
-        console.log(rates);
       })
   }, [])
 
+  console.log(rates);
   return (
     <div className='app_wrapper'>
       <h1>Currency converter</h1>
-      <CurrencyBlock
-        value={0}
-        currency={fromCurrency}
-        onChangeCurrency={setFromCurrency}
-      />
-      <CurrencyBlock 
-        value={0}
-        currency={toCurrency}
-        onChangeCurrency={setToCurrency}
-      />
+      <div className='converter_wrapper'>
+        <CurrencyBlock
+          value={fromPrice}
+          currency={fromCurrency}
+          onChangeCurrency={setFromCurrency}
+          onChangeValue={onChangeFromPrice}
+        />
+        <CurrencyBlock 
+          value={toPrice}
+          currency={toCurrency}
+          onChangeCurrency={setToCurrency}
+          onChangeValue={onChangeToPrice}
+        />
+      </div>
     </div>
   );
 }
