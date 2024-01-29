@@ -21,9 +21,6 @@
     border-radius: 5px;
     width: 100%;
 }
-.currencies {
-    width: 100%;
-}
 li {
     display: inline-flex;
     padding: 10px 20px;
@@ -31,4 +28,13 @@ li {
     cursor: pointer;
     justify-content: center;
     flex: 1;
+}
+.active {
+    background-color: #16b67f;
+    color: #fff; 
+}
+.text {
+    margin-bottom: 1%;
+    font-size: 1.2rem;
+    color: grey;
 }

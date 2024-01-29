@@ -1,3 +1,3 @@
-const defaultCurrencies = ["UA", "USD", "EU", "RUB", "GBP"];
+const defaultCurrencies = ["EUR", "USD", "PLN", "RUB", "GBP"];
 
 export default defaultCurrencies;
